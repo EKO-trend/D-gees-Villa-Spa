@@ -1,7 +1,10 @@
 const productPrices = {
   "Bow Hair Clip": 4000,
   "Lip Gloss": 1000,
-  "Perfume": 1000
+  "Perfume": 1000,
+  "Pink Lip Cream":2000,
+  "Head Band":1000,
+  "Scrunchie":1000
 };
 
 function updatePrice() {

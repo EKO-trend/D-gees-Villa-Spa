@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>D'gess Villa Spa and Cosmetics</title>
+  <title>Girly Hub</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -33,22 +33,43 @@
         <p>₦1,000</p>
         <button onclick="selectProduct('Perfume', 1000)">Select</button>
       </div>
+      <div class="product-card">
+        <img src="Pink Lip Cream.jpg" alt="Pink Lip Cream"/>
+        <h3>Pink Lip Cream</h3>
+        <p>₦2,000</p>
+        <button onclick="selectProduct('Pink Lip Cream', 2000)">Select</button>
+      </div>
+      <div class="product-card">
+        <img src="Head Band.jpg" alt="Head Band"/>
+        <h3>Head Band</h3>
+        <p>₦1,000</p>
+        <button onclick="selectProduct('Head Band', 1000)">Select</button>
+      </div>
+<div class="product-card">
+        <img src="Scrunchie.jpg" alt="Scrunchie"/>
+        <h3>Scrunchie</h3>
+        <p>₦1,000</p>
+        <button onclick="selectProduct('Scrunchie', 1000)">Select</button>
+      </div>
     </div>
   </section>
   <section class="order-form">
     <h2>Place Your Order</h2>
     <form id="orderForm">
       <label>Full Name: <input type="text" id="fullName" required /></label>
-      <label>Phone Number: <input type="tel" id="phone" required placeholder="e.g. 08012345678" /></label>
+      <label>Phone Number: <input type="tel" id="phone" required placeholder="e.g. 08023441145" /></label>
       <label>Email: <input type="email" id="email" required /></label>
       <label>Delivery Address: <input type="text" id="address" required /></label>
 
       <label>Product Name:
         <select id="product" onchange="updatePrice()" required>
           <option value="">--Select--</option>
-          <option value="Matte Lipstick">Matte Lipstick</option>
+          <option value="Bow Hair Clip">Bow Hair Clip</option>
           <option value="Lip Gloss">Lip Gloss</option>
-          <option value="Glow Skincare Set">Glow Skincare Set</option>
+          <option value="Perfume">Perfume</option>
+          <option value="Pink Lip Cream">Pink Lip Cream</option>
+          <option value="Scrunchie">Scrunchie</option>
+          <option value="Head Band">Head Band</option>
         </select>
       </label>
 
@@ -65,8 +86,7 @@
         Account Number: <strong>2082229812</strong><br>
         Bank: <strong>Zenith Bank</strong>
       </p>
-
-      <button type="submit">Send Order via WhatsApp</button>
+      <button type="submit">Finish Order</button>
     </form>
   </section>
 
@@ -82,8 +102,8 @@
 <!-- Footer Section -->
 <footer class="custom-footer">
   <div class="footer-content">
-    <p>© 2025 D'Gess Villa Spa and Cosmetics. Made with 💖 in Nigeria.</p>
-    <p>🔔 For questions, Call our Customer Care: <a href="tel:+2348023441145">08023441145</a></p>
+    <p>© 2025 Girl Hub. With 💖 in Nigeria.</p>
+    <p>🔔 For questions, Call our Customer Care: <a href="tel:+2349057781842">09057781842</a></p>
 
     <!-- Social Media Icons -->
     <div class="footer-social-icons">
