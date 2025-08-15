@@ -47,5 +47,5 @@ document.getElementById("orderForm").addEventListener("submit", function (e) {
   const businessPhone = "2348023441145"; // <-- Replace this with your real WhatsApp number
 
   // Open WhatsApp chat with pre-filled message
-  window.open(`https://wa.me/${businessPhone}?text=${message}`, "_blank");
+  window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(message)}`,`blank`);
 });
