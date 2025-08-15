@@ -32,7 +32,7 @@ document.getElementById("orderForm").addEventListener("submit", function (e) {
   const quantity = document.getElementById("quantity").value;
   const total = document.getElementById("totalPrice").value;
 
-  const message = `*New Order - D'gess Villa Spa & Cosmetics*%0A
+  const message = `New Order - D'gess Villa Spa & Cosmetics
 Name: ${name}
 Phone: ${phone}
 Email: ${email}
