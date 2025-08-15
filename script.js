@@ -33,15 +33,15 @@ document.getElementById("orderForm").addEventListener("submit", function (e) {
   const total = document.getElementById("totalPrice").value;
 
   const message = `*New Order - D'gess Villa Spa & Cosmetics*%0A
-%0A*Name:* ${name}
-%0A*Phone:* ${phone}
-%0A*Email:* ${email}
-%0A*Address:* ${address}
-%0A*Product:* ${product}
-%0A*Quantity:* ${quantity}
-%0A*Total:* ${total}
-%0A*Payment Method:* Bank Transfer
-%0A%0APlease confirm availability and delivery timing.`;
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Address: ${address}
+Product: ${product}
+Quantity: ${quantity}
+Total: ${total}
+Payment Method: Bank Transfer
+Please confirm availability and delivery timing.`;
 
   // 👇 Your business WhatsApp number in international format (remove the +)
   const businessPhone = "2348023441145"; // <-- Replace this with your real WhatsApp number
