@@ -1,101 +1,95 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>D'gees Villa Spa</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>D'gees Villa Spa💄</h1>
-    <p class="tagline">Your beauty, our duty <span>NG</span></p>
+    <div class="container header-flex">
+      <h1>D'gees Villa Spa</h1>
+      
+      </nav>
+      <button id="finishOrderBtn" class="btn">Finish Order</button>
+    </div>
   </header>
-  <section class="listings">
-    <h2>Our Listings</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="Bow hair clip.jpg" alt="Bow hair clip"/>
-        <h3>Bow Hair Clip</h3>
-        <p>₦4,000</p>
-        <button onclick="selectProduct('Bow Hair Clip', 4000)">Select</button>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h2>Unwind in style at <span class="highlight">D'gees</span></h2>
+        <p>Shop premium beauty products, create your cart, and checkout via WhatsApp in seconds.</p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn">Browse Products</a>
+          <a href="#checkout" class="btn-outline">Go to Checkout</a>
+        </div>
       </div>
-      <div class="product-card">
-       <img src="Lip Gloss.jpg" alt="Lip Gloss">
-        <h3>Lip Gloss</h3>
-        <p>₦1,000</p>
-        <button onclick="selectProduct('Lip Gloss', 1000)">Select</button>
-      </div>
-      <div class="product-card">
-        <img src="Perfume.jpg" alt="Perfume"/>
-        <h3>Perfume</h3>
-        <p>₦1,000</p>
-        <button onclick="selectProduct('Perfume', 1000)">Select</button>
-      </div>
-      <div class="product-card">
-        <img src="Pink Lip Cream.jpg" alt="Pink Lip Cream"/>
-        <h3>Pink Lip Cream</h3>
-        <p>₦2,000</p>
-        <button onclick="selectProduct('Pink Lip Cream', 2000)">Select</button>
-      </div>
-      <div class="product-card">
-        <img src="Head Band.jpg" alt="Head Band"/>
-        <h3>Head Band</h3>
-        <p>₦1,000</p>
-        <button onclick="selectProduct('Head Band', 1000)">Select</button>
-      </div>
-<div class="product-card">
-        <img src="Scrunchie.jpg" alt="Scrunchie"/>
-        <h3>Scrunchie</h3>
-        <p>₦1,000</p>
-        <button onclick="selectProduct('Scrunchie', 1000)">Select</button>
-      </div>
+      <div class="hero-card">Our signature pink & white aesthetic reflects calm, comfort, and care.</div>
     </div>
   </section>
-  <section class="order-form">
-   <u><h2>Place Your Order</h2></u>
-    <h3>Please place an order for each product separately.</h3>
-    <h4>Fill in your details below:</h4>
-    <form id="orderForm">
-      <label>Full Name: <input type="text" id="fullName" required /></label>
-      <label>Phone Number: <input type="tel" id="phone" required placeholder="e.g. 08023441145" /></label>
-      <label>Email: <input type="email" id="email" required /></label>
-      <label>Delivery Address: <input type="text" id="address" required /></label>
 
-      <label>Product Name:
-        <select id="product" onchange="updatePrice()" required>
-          <option value="">--Select--</option>
-          <option value="Bow Hair Clip">Bow Hair Clip</option>
-          <option value="Lip Gloss">Lip Gloss</option>
-          <option value="Perfume">Perfume</option>
-          <option value="Pink Lip Cream">Pink Lip Cream</option>
-          <option value="Scrunchie">Scrunchie</option>
-          <option value="Head Band">Head Band</option>
-        </select>
-      </label>
+  <main class="container main-grid">
+    <section id="services">
+      <h3>Our Products</h3>
+      <div class="products-grid">
+        <div class="card">
+          <img src="Bow hair clip.jpg" alt="Bow Hair Clip" class="product-img" />
+          <h4>Bow Hair Clip</h4>
+          <p>₦4,000</p>
+          <button class="btn" onclick="addToCart('Bow Hair Clip', 4000)">Add to Cart</button>
+        </div>
 
-      <label>Quantity: <input type="number" id="quantity" min="1" value="1" required /></label>
-      <label>Total Price: <input type="text" id="totalPrice" readonly /></label>
+        <div class="card">
+          <img src="Lip Gloss.jpg" alt="Lip Gloss" class="product-img" />
+          <h4>Lip Gloss</h4>
+          <p>₦1,000</p>
+          <button class="btn" onclick="addToCart('Lip Gloss', 1000)">Add to Cart</button>
+        </div>
 
-      <label>Payment Method:
-        <input type="text" value="Bank Transfer Only" disabled />
-      </label>
+        <div class="card">
+          <img src="Perfume.jpg" alt="Perfume" class="product-img" />
+          <h4>Perfume</h4>
+          <p>₦1,000</p>
+          <button class="btn" onclick="addToCart('Perfume', 1000)">Add to Cart</button>
+        </div>
 
-      <p class="bank-info">
-        Please make payment to:<br>
-        <strong>D'gees Villa Spa</strong><br>
-        Account Number: <strong>1211008863</strong><br>
-        Bank: <strong>Zenith Bank</strong>
-      </p>
-      <button type="submit">Finish Order</button>
-    </form>
-  </section>
+        <div class="card">
+          <img src="Pink Lip Cream.jpg" alt="Pink Lip Cream" class="product-img" />
+          <h4>Pink Lip Cream</h4>
+          <p>₦2,000</p>
+          <button class="btn" onclick="addToCart('Pink Lip Cream', 2000)">Add to Cart</button>
+        </div>
+      </div>
+    </section>
 
-  <script src="script.js"></script>
-</body>
-</html>
-  
+    <aside>
+      <div id="cart" class="card">
+        <h3>Your Cart</h3>
+        <div id="cartItems"></div>
+        <div class="subtotal">Subtotal: <span id="subtotal">₦0</span></div>
+      </div>
+
+      <div id="checkout" class="card checkout-form">
+        <h3>Checkout</h3>
+        <form id="checkoutForm">
+          <div class="form-row">
+            <label>Full Name*<input type="text" id="custName" required /></label>
+            <label>Phone*<input type="text" id="custPhone" required /></label>
+          </div>
+          <label>Address<input type="text" id="custAddress" /></label>
+          <div class="form-row">
+            <label>Preferred Date<input type="date" id="custDate" /></label>
+            <label>Preferred Time<input type="time" id="custTime" /></label>
+          </div>
+          <label>Order Note<textarea id="custNote"></textarea></label>
+          <button type="button" id="checkoutBtn" class="btn full-width">Finish Order on WhatsApp</button>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -125,7 +119,7 @@
 <!-- CSS -->
 <style>
   .custom-footer {
-    background-color: #f9a8b8;
+    background-color: #2C2D2D;
     padding: 30px 15px;
     text-align: center;
     color: #fff;
@@ -148,7 +142,7 @@
   .footer-social-icons a {
     font-size: 24px;
     color: #fff;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.7s ease, transform 0.7s ease;
   }
 
   .footer-social-icons a:hover {

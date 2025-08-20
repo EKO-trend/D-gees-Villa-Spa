@@ -1,51 +1,70 @@
-const productPrices = {
-  "Bow Hair Clip": 4000,
-  "Lip Gloss": 1000,
-  "Perfume": 1000,
-  "Pink Lip Cream":2000,
-  "Head Band":1000,
-  "Scrunchie":1000
-};
+// script.js
+const OWNER_WHATSAPP = "2348023441145"; // Replace with your WhatsApp number
 
-function updatePrice() {
-  const product = document.getElementById("product").value;
-  const quantity = parseInt(document.getElementById("quantity").value || "1");
-  const price = productPrices[product] || 0;
-  document.getElementById("totalPrice").value = `₦${(price * quantity).toLocaleString()}`;
+let cart = {};
+
+function formatCurrency(n) {
+  return new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN" }).format(n);
 }
 
-function selectProduct(name, price) {
-  document.getElementById("product").value = name;
-  updatePrice();
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  const subtotalEl = document.getElementById("subtotal");
+  cartItems.innerHTML = "";
+  let subtotal = 0;
+  Object.keys(cart).forEach(name => {
+    const { qty, price } = cart[name];
+    const line = price * qty;
+    subtotal += line;
+    const div = document.createElement("div");
+    div.innerHTML = `${name} x ${qty} = ${formatCurrency(line)} <button onclick="removeFromCart('${name}')">Remove</button>`;
+    cartItems.appendChild(div);
+  });
+  subtotalEl.textContent = formatCurrency(subtotal);
 }
 
-document.getElementById("quantity").addEventListener("input", updatePrice);
+function addToCart(name, price) {
+  if (!cart[name]) {
+    cart[name] = { qty: 0, price: price };
+  }
+  cart[name].qty++;
+  renderCart();
+}
 
-document.getElementById("orderForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+function removeFromCart(name) {
+  delete cart[name];
+  renderCart();
+}
 
-  const name = document.getElementById("fullName").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const product = document.getElementById("product").value;
-  const quantity = document.getElementById("quantity").value;
-  const total = document.getElementById("totalPrice").value;
+function finishOrder() {
+  const name = document.getElementById("custName").value;
+  const phone = document.getElementById("custPhone").value;
+  const address = document.getElementById("custAddress").value;
+  const date = document.getElementById("custDate").value;
+  const time = document.getElementById("custTime").value;
+  const note = document.getElementById("custNote").value;
 
-  const message = `New Order - D'gess Villa Spa & Cosmetics
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Address: ${address}
-Product: ${product}
-Quantity: ${quantity}
-Total: ${total}
-Payment Method: Bank Transfer
-Please confirm availability and delivery timing.`;
+  if (!name || !phone || Object.keys(cart).length === 0) {
+    alert("Please fill required fields and add at least one item.");
+    return;
+  }
 
-  // 👇 Your business WhatsApp number in international format (remove the +)
-  const businessPhone = "2348023441145"; // <-- Replace this with your real WhatsApp number
+  let summary = `*D'gees Villa Spa* — New Order\n\n*Order Summary:*\n`;
+  let subtotal = 0;
+  Object.keys(cart).forEach(itemName => {
+    const { qty, price } = cart[itemName];
+    const line = price * qty;
+    subtotal += line;
+    summary += `• ${itemName} x ${qty} = ${formatCurrency(line)}\n`;
+  });
+  summary += `\nSubtotal: ${formatCurrency(subtotal)}\n\n*Customer Details:*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\nPreferred Date: ${date}\nPreferred Time: ${time}`;
+  if (note) summary += `\nNote: ${note}`;
 
-  // Open WhatsApp chat with pre-filled message
-  window.open(`https://wa.me/${businessPhone}?text=${encodeURIComponent(message)}`,`blank`);
-});
+  const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(summary)}`;
+  window.open(url, "_blank");
+}
+
+document.getElementById("finishOrderBtn").addEventListener("click", finishOrder);
+document.getElementById("checkoutBtn").addEventListener("click", finishOrder);
+
+renderCart();
