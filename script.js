@@ -57,7 +57,7 @@ function finishOrder() {
     subtotal += line;
     summary += `• ${itemName} x ${qty} = ${formatCurrency(line)}\n`;
   });
-  summary += `\nSubtotal: ${formatCurrency(subtotal)}\n\n*Customer Details:*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\nPreferred Date: ${date}\nPreferred Time: ${time}`;
+  summary += `\nSubtotal: ${formatCurrency(subtotal)}\n\n*Customer Details:*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nPreferred Date: ${date}\nPreferred Time: ${time}`;
   if (note) summary += `\nNote: ${note}`;
 
   const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(summary)}`;
